@@ -16,7 +16,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-    
+    this.setLocationRelativeTo(null);
     }
 
     /**
@@ -33,6 +33,8 @@ public class Principal extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setAutoRequestFocus(false);
 
         jLabel1.setText("jLabel1");
 
