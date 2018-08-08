@@ -1,12 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projetorpg;
 
 import Modelo.Oponente;
 import Modelo.Personagem;
+import ferramentas.CaixaDeDialogo;
+import java.util.Random;
+
 
 /**
  *
@@ -14,13 +12,49 @@ import Modelo.Personagem;
  */
 public class TelaConfronto extends javax.swing.JFrame {
 
+    Personagem personagem;
+    Oponente oponente;
+
     /**
      * Creates new form Tela_confronto
      */
-    public TelaConfronto(Personagem persoagem) {
+    public TelaConfronto(Personagem personagem) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.personagem = personagem;
         
+        mostrarPersonagem();
+
+    }
+
+    //metodo pra mostar personagem
+    private void mostrarPersonagem() {
+        classep.setText(String.valueOf(personagem.getClasse()));
+
+        personageml.setText(personagem.getNome());
+        vidap.setText(String.valueOf(personagem.getVida()));
+        ataquep.setText(String.valueOf(personagem.getAtaque()));
+    }
+
+//metodo mostar openente
+    private void mostrarOponente() {
+        vida_op.setText(String.valueOf(oponente.getVida()));
+        ataque_op.setText(String.valueOf(oponente.getAtaque_op()));
+        inimigo.setText(String.valueOf(oponente.getNome_op()));
+        classe_op.setText(String.valueOf(oponente.getClasse_op()));
+    }
+
+//gerar oponente
+    private void gerarOponente() {
+        try {
+            Random gerador = new Random();
+            oponente.setAtaque_op(gerador.nextInt(5) + 1);
+            oponente.setVida(gerador.nextInt(200) + 1);
+
+        } catch (Exception ex) {
+            CaixaDeDialogo.obterinstancia().exibirMensagem(ex.getMessage(), 'e');
+        }
+
     }
 
     /**
@@ -32,23 +66,25 @@ public class TelaConfronto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        personagem = new javax.swing.JLabel();
+        titulo = new javax.swing.JLabel();
+        personageml = new javax.swing.JLabel();
         vidap = new javax.swing.JLabel();
         inimigo = new javax.swing.JLabel();
         vida_op = new javax.swing.JLabel();
         ataquep = new javax.swing.JLabel();
         ataque_op = new javax.swing.JLabel();
-        Atacar = new javax.swing.JButton();
+        classe_op = new javax.swing.JLabel();
+        classep = new javax.swing.JLabel();
+        atacar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Vladimir Script", 2, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("MAGO'S QUEST");
-        jLabel1.setToolTipText("");
+        titulo.setFont(new java.awt.Font("Vladimir Script", 2, 24)); // NOI18N
+        titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titulo.setText("MAGO'S QUEST");
+        titulo.setToolTipText("");
 
-        personagem.setText("personagem:");
+        personageml.setText("personagem:");
 
         vidap.setText("vida atual:");
 
@@ -60,10 +96,14 @@ public class TelaConfronto extends javax.swing.JFrame {
 
         ataque_op.setText("ataque:");
 
-        Atacar.setText("Atacar");
-        Atacar.addActionListener(new java.awt.event.ActionListener() {
+        classe_op.setText("classe: ");
+
+        classep.setText("classe: ");
+
+        atacar.setText("Atacar");
+        atacar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AtacarActionPerformed(evt);
+                atacarActionPerformed(evt);
             }
         });
 
@@ -72,61 +112,71 @@ public class TelaConfronto extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(personagem)
-                    .addComponent(vidap)
-                    .addComponent(ataquep))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(inimigo)
-                        .addGap(145, 145, 145))
+                    .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(vida_op)
-                            .addComponent(ataque_op))
-                        .addContainerGap())))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(257, 257, 257)
-                .addComponent(Atacar, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(vidap)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(ataquep)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ataque_op)
+                        .addGap(217, 217, 217))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(atacar, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(personageml)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(classep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(404, 404, 404)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(classe_op)
+                                    .addComponent(inimigo)
+                                    .addComponent(vida_op))))
+                        .addGap(204, 204, 204))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addContainerGap()
+                .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(personagem)
+                    .addComponent(personageml)
                     .addComponent(inimigo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(classe_op)
+                    .addComponent(classep))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(vidap)
                     .addComponent(vida_op, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ataquep)
                     .addComponent(ataque_op))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
-                .addComponent(Atacar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                .addComponent(atacar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-private void ataque(){
-    
-}
-    private void AtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtacarActionPerformed
-        // TODO add your handling code here:
-        ataque();
-        
-    }//GEN-LAST:event_AtacarActionPerformed
 
+    private void atacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atacarActionPerformed
+        // ataque();
+    }//GEN-LAST:event_atacarActionPerformed
+//private void ataque(){
+
+//}
     /**
      * @param args the command line arguments
      */
@@ -164,12 +214,14 @@ private void ataque(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Atacar;
+    private javax.swing.JButton atacar;
     private javax.swing.JLabel ataque_op;
     private javax.swing.JLabel ataquep;
+    private javax.swing.JLabel classe_op;
+    private javax.swing.JLabel classep;
     private javax.swing.JLabel inimigo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel personagem;
+    private javax.swing.JLabel personageml;
+    private javax.swing.JLabel titulo;
     private javax.swing.JLabel vida_op;
     private javax.swing.JLabel vidap;
     // End of variables declaration//GEN-END:variables
