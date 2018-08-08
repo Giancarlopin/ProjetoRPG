@@ -42,9 +42,9 @@ public class TelaConfronto extends javax.swing.JFrame {
         jLabel1.setText("MAGO'S QUEST");
         jLabel1.setToolTipText("");
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("personagem:");
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("vida atual");
 
         jLabel4.setText("jLabel4");
 
@@ -60,7 +60,7 @@ public class TelaConfronto extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(235, 235, 235)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(77, 77, 77))
         );
