@@ -5,6 +5,7 @@
  */
 package projetorpg;
 
+import Modelo.Oponente;
 import Modelo.Personagem;
 
 /**
@@ -19,6 +20,7 @@ public class TelaConfronto extends javax.swing.JFrame {
     public TelaConfronto(Personagem persoagem) {
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -31,9 +33,13 @@ public class TelaConfronto extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        personagem = new javax.swing.JLabel();
+        vidap = new javax.swing.JLabel();
+        inimigo = new javax.swing.JLabel();
+        vida_op = new javax.swing.JLabel();
+        ataquep = new javax.swing.JLabel();
+        ataque_op = new javax.swing.JLabel();
+        Atacar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,27 +48,52 @@ public class TelaConfronto extends javax.swing.JFrame {
         jLabel1.setText("MAGO'S QUEST");
         jLabel1.setToolTipText("");
 
-        jLabel2.setText("personagem:");
+        personagem.setText("personagem:");
 
-        jLabel3.setText("vida atual");
+        vidap.setText("vida atual:");
 
-        jLabel4.setText("jLabel4");
+        inimigo.setText("opnente:");
+
+        vida_op.setText("vida atual:");
+
+        ataquep.setText("ataque:");
+
+        ataque_op.setText("ataque:");
+
+        Atacar.setText("Atacar");
+        Atacar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AtacarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(235, 235, 235)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(77, 77, 77))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(personagem)
+                    .addComponent(vidap)
+                    .addComponent(ataquep))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(inimigo)
+                        .addGap(145, 145, 145))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(vida_op)
+                            .addComponent(ataque_op))
+                        .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(257, 257, 257)
+                .addComponent(Atacar, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -70,14 +101,31 @@ public class TelaConfronto extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addGap(0, 310, Short.MAX_VALUE))
+                    .addComponent(personagem)
+                    .addComponent(inimigo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(vidap)
+                    .addComponent(vida_op, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ataquep)
+                    .addComponent(ataque_op))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                .addComponent(Atacar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+private void ataque(){
+    
+}
+    private void AtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtacarActionPerformed
+        // TODO add your handling code here:
+        ataque();
+        
+    }//GEN-LAST:event_AtacarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,9 +164,13 @@ public class TelaConfronto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Atacar;
+    private javax.swing.JLabel ataque_op;
+    private javax.swing.JLabel ataquep;
+    private javax.swing.JLabel inimigo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel personagem;
+    private javax.swing.JLabel vida_op;
+    private javax.swing.JLabel vidap;
     // End of variables declaration//GEN-END:variables
 }
