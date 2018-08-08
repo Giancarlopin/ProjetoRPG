@@ -5,6 +5,8 @@
  */
 package projetorpg;
 
+import Modelo.Personagem;
+
 /**
  *
  * @author dmdullius
@@ -14,7 +16,7 @@ public class TelaConfronto extends javax.swing.JFrame {
     /**
      * Creates new form Tela_confronto
      */
-    public TelaConfronto() {
+    public TelaConfronto(Personagem persoagem) {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -108,7 +110,7 @@ public class TelaConfronto extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaConfronto().setVisible(true);
+                new TelaConfronto(null).setVisible(true);
             }
         });
     }
