@@ -60,6 +60,11 @@ public class Principal extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Vladimir Script", 0, 18)); // NOI18N
         jButton1.setText("Voltar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Vladimir Script", 0, 18)); // NOI18N
         jButton2.setText("Jogar");
@@ -159,6 +164,11 @@ public class Principal extends javax.swing.JFrame {
         tela.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+      
+    }//GEN-LAST:event_jButton1MouseClicked
                                     
 
     /**
