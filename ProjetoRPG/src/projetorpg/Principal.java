@@ -50,7 +50,7 @@ public class Principal extends javax.swing.JFrame {
         rbPaladino = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 400));
+        setPreferredSize(new java.awt.Dimension(700, 600));
 
         jLabel1.setFont(new java.awt.Font("Vladimir Script", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -142,9 +142,17 @@ public class Principal extends javax.swing.JFrame {
         personagem.setNome(txtNome.getText());
         
         if(rbGuerreiro.isSelected()){
+            personagem.setClasse("Guerreiro");
             personagem.setVida(100);
+            personagem.setAtaque(65);
         }else if(rbMago.isSelected()){
+            personagem.setClasse("Mago");
             personagem.setVida(90);
+            personagem.setAtaque(70);
+        } else if(rbPaladino.isSelected()){
+            personagem.setClasse("Paladino");
+            personagem.setVida(105);
+            personagem.setAtaque(60);
         }
         
         TelaConfronto tela = new TelaConfronto(personagem);
