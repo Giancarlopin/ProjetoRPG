@@ -40,8 +40,8 @@ public class TelaConfronto extends javax.swing.JFrame {
     private void mostrarOponente() {
         vida_op.setText(String.valueOf(oponente.getVida()));
         ataque_op.setText(String.valueOf(oponente.getAtaque_op()));
-        inimigo.setText(String.valueOf(oponente.getNome_op()));
-        classe_op.setText(String.valueOf(oponente.getClasse_op()));
+        inimigo.setText(String.valueOf(oponente.getNome()));
+        classe_op.setText(String.valueOf(oponente.getClasse()));
     }
 
 //gerar oponente
