@@ -10,32 +10,32 @@ package Modelo;
  * @author dmdullius
  */
 public class Oponente {
-    private String nome;
-    private int vida;
+    private String nome_op;
+    private int vida_op;
     private int ataque_op;
-    private int classe;
+    private String classe_op;
 
-    public Oponente(String nome, int vida, int ataque_op) {
-        this.nome = nome;
-        this.vida = vida;
+    public Oponente(String nome_op, int Vida_op, int ataque_op, String classe_op) {
+        this.nome_op = nome_op;
+        this.vida_op = Vida_op;
         this.ataque_op = ataque_op;
-        this.classe = classe;
+        this.classe_op = classe_op;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNome_op() {
+        return nome_op;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome_op(String nome) {
+        this.nome_op = nome;
     }
 
-    public int getVida() {
-        return vida;
+    public int getVida_op() {
+        return vida_op;
     }
 
-    public void setVida(int vida) {
-        this.vida = vida;
+    public void setVida_op(int vida_op) {
+        this.vida_op = vida_op;
     }
 
     public int getAtaque_op() {
@@ -46,12 +46,12 @@ public class Oponente {
         this.ataque_op = ataque_op;
     }
 
-    public int getClasse() {
-        return classe;
+    public String getClasse_op() {
+        return classe_op;
     }
 
-    public void setClasse(int classe) {
-        this.classe = classe;
+    public void setClasse_op(String classe_op) {
+        this.classe_op = classe_op;
     }
     
     
