@@ -38,10 +38,10 @@ public class TelaConfronto extends javax.swing.JFrame {
 
 //metodo mostar openente
     private void mostrarOponente() {
-        vida_op.setText(String.valueOf(oponente.getVida()));
+        vida_op.setText(String.valueOf(oponente.getVida_op()));
         ataque_op.setText(String.valueOf(oponente.getAtaque_op()));
-        inimigo.setText(String.valueOf(oponente.getNome()));
-        classe_op.setText(String.valueOf(oponente.getClasse()));
+        inimigo.setText(String.valueOf(oponente.getNome_op()));
+        classe_op.setText(String.valueOf(oponente.getClasse_op()));
     }
 
 //gerar oponente
@@ -49,7 +49,7 @@ public class TelaConfronto extends javax.swing.JFrame {
         try {
             Random gerador = new Random();
             oponente.setAtaque_op(gerador.nextInt(5) + 1);
-            oponente.setVida(gerador.nextInt(200) + 1);
+            oponente.setVida_op(gerador.nextInt(200) + 1);
 
         } catch (Exception ex) {
             CaixaDeDialogo.obterinstancia().exibirMensagem(ex.getMessage(), 'e');
